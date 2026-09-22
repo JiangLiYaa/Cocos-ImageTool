@@ -1,0 +1,71 @@
+{
+  "package_version": 2,
+  "name": "cocos-tinify",
+  "version": "1.0.0",
+  "title": "cocos-tinify",
+  "description": "使用 TinyPNG (Tinify API) 压缩图片：资源管理器右键压缩、构建后自动压缩",
+  "author": "ChaJianpPicture",
+  "editor": ">=3.8.0",
+  "main": "./dist/main.js",
+  "dependencies": {
+    "tinify": "^1.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.0",
+    "typescript": "^4.9.5"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "watch": "tsc -w"
+  },
+  "contributions": {
+    "builder": "./dist/builder.js",
+    "assets": {
+      "menu": {
+        "methods": "./dist/assets-menu.js",
+        "assetMenu": "onAssetMenu"
+      }
+    },
+    "profile": {
+      "project": {
+        "tinifyApiKey": {
+          "default": "",
+          "label": "Tinify API Key"
+        },
+        "imageTypeRegex": {
+          "default": "\\.(png|jpg|jpeg|webp)$",
+          "label": "图片类型（正则）"
+        },
+        "minImageSize": {
+          "default": 0,
+          "label": "最小压缩大小（字节）"
+        }
+      }
+    },
+    "project": {
+      "tinify": {
+        "label": "cocos-tinify",
+        "content": {
+          "tinifyApiKey": {
+            "ui": "ui-input",
+            "attributes": {
+              "placeholder": "https://tinypng.com/developers"
+            }
+          },
+          "imageTypeRegex": {
+            "ui": "ui-input",
+            "attributes": {
+              "placeholder": "\\.(png|jpg|jpeg|webp)$"
+            }
+          },
+          "minImageSize": {
+            "ui": "ui-num-input",
+            "attributes": {
+              "placeholder": "0"
+            }
+          }
+        }
+      }
+    }
+  }
+}
